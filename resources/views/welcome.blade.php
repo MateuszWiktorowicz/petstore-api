@@ -15,6 +15,7 @@
         @include('ApiForms.createPetForm')
         @include('ApiForms.deletePetForm')
         @include('ApiForms.updatePetForm')
+        @include('ApiForms.uploadImageForm')
     </main>
 
     <footer class="py-16 text-center text-sm text-black">
