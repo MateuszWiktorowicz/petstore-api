@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/pet', [PetController::class, 'getPetById'])->name('petstore.getPet');
+Route::post('/pet', [PetController::class, 'createPet'])->name('petstore.createPet');
