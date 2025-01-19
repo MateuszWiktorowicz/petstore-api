@@ -14,6 +14,7 @@
         @include('ApiForms.getPetByIdForm')
         @include('ApiForms.createPetForm')
         @include('ApiForms.deletePetForm')
+        @include('ApiForms.updatePetForm')
     </main>
 
     <footer class="py-16 text-center text-sm text-black">
