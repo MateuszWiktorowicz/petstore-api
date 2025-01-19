@@ -15,7 +15,7 @@ In form Find Pet by ID type id You are looking and press submit
 - Photo urls (You can typo several links just separate them by semicolon - ";" )
 - tags (You can typo several tags just separate them by semicolon - ";" )
 
-- ## Delete pet
+## Delete pet
 In form Delete a Pet type Pet id You want to delete
 
  ## Update Pet
