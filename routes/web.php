@@ -10,3 +10,4 @@ Route::get('/', function () {
 Route::get('/pet', [PetController::class, 'getPetById'])->name('petstore.getPet');
 Route::post('/pet', [PetController::class, 'createPet'])->name('petstore.createPet');
 Route::delete('/pet', [PetController::class, 'deletePet'])->name('petstore.deletePet');
+Route::put('/pet', [PetController::class, 'updatePet'])->name('petstore.updatePet');
