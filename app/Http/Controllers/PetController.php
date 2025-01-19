@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Services\PetService;
 use App\Http\Requests\{
     GetPetByIdRequest,
-    CreatePetRequest
+    CreatePetRequest,
+    DeletePetRequest
 };
 
 class PetController extends Controller
@@ -24,6 +25,15 @@ class PetController extends Controller
         $validatedData = $request->validated();
 
         $response = $petService->createPet($validatedData);
+
+        return $response;
+    }
+
+    public function deletePet(DeletePetRequest $request, PetService $petService)
+    {
+        $validatedData = $request->validated();
+
+        $response = $petService->deletePet($validatedData['id']);
 
         return $response;
     }

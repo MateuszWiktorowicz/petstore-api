@@ -55,6 +55,28 @@ class PetService
         ], $response->status());
     }
 
+    public function deletePet(string $petId)
+    {
+        $response = Http::withHeaders([
+            'api_key' => $this->apiKey,
+        ])->delete("https://petstore.swagger.io/v2/pet/{$petId}");
+
+        $responseData = $response->json();
+
+        if ($response->successful()) {
+            $responseData['message'] = "Pet deleted: ID - {$petId}";
+
+            return response()->json($responseData, 200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => $response->status() === 404 ? 'Pet not found' : 'Error fetching pet data',
+            'error_code' => $response->status(),
+            'error_details' => $responseData ?? null,
+        ], $response->status());
+    }
+
     private function processPetData(array $data)
     {
         $name = $data['name'];
