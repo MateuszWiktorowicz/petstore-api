@@ -7,7 +7,8 @@ use App\Http\Requests\{
     GetPetByIdRequest,
     CreatePetRequest,
     DeletePetRequest,
-    UpdatePetRequest
+    UpdatePetRequest,
+    UploadImageRequest
 };
 
 class PetController extends Controller
@@ -44,6 +45,15 @@ class PetController extends Controller
         $validatedData = $request->validated();
 
         $response = $petService->updatePetData($validatedData);
+
+        return $response;
+    }
+
+    public function uploadImage(UploadImageRequest $request, PetService $petService)
+    {
+        $validated = $request->validated();
+
+        $response = $petService->uploadImage($validated);
 
         return $response;
     }
