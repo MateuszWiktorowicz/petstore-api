@@ -6,7 +6,8 @@ use App\Services\PetService;
 use App\Http\Requests\{
     GetPetByIdRequest,
     CreatePetRequest,
-    DeletePetRequest
+    DeletePetRequest,
+    UpdatePetRequest
 };
 
 class PetController extends Controller
@@ -34,6 +35,15 @@ class PetController extends Controller
         $validatedData = $request->validated();
 
         $response = $petService->deletePet($validatedData['id']);
+
+        return $response;
+    }
+
+    public function updatePet(UpdatePetRequest $request, PetService $petService)
+    {
+        $validatedData = $request->validated();
+
+        $response = $petService->updatePetData($validatedData);
 
         return $response;
     }

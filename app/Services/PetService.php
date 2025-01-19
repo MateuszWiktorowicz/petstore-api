@@ -77,6 +77,28 @@ class PetService
         ], $response->status());
     }
 
+    public function updatePetData(array $petData)
+    {
+        $pet = $this->processPetData($petData);
+
+        $response = Http::put("https://petstore.swagger.io/v2/pet", $pet);
+
+        $responseData = $response->json();
+
+        if ($response->successful()) {
+            $responseData['message'] = "Pet Data changed: ID - {$pet['id']}";
+
+            return response()->json($responseData, 200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => $response->status() === 404 ? 'Pet not found' : 'Error fetching pet data',
+            'error_code' => $response->status(),
+            'error_details' => $responseData ?? null,
+        ], $response->status());
+    }
+
     private function processPetData(array $data)
     {
         $name = $data['name'];
