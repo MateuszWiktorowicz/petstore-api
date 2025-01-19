@@ -35,4 +35,7 @@ return [
         ],
     ],
 
+    'petstore' => [
+        'url' => env('API_PETSTORE_URL'),
+    ],
 ];
